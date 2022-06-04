@@ -35,5 +35,32 @@ router.post('/addUser', (req, res) => {
     });
 })
 
+router.put('/update/:id', (req, res) => {
+    const id = req.params.id;
+    const newUser = req.body;
+    userData.forEach((user, index) => {
+        if (user.id === id) {
+            userData[index] = newUser;
+        }
+    });
+    res.send({
+        message: 'User updated successfully',
+        data: newUser
+    });
+})
+
+router.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    userData.forEach((user, index) => {
+        if (user.id === id) {
+            userData.splice(index, 1);
+        }
+    });
+    res.send({
+        message: 'User deleted successfully',
+        data: id
+    });
+}
+)
 module.exports = router;
 
