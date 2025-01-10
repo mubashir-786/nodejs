@@ -8,7 +8,7 @@ app.listen(3000, () => {
 app.use(express.json())
 app.use('/', require('./routes'))
 
-
+// h
 // app.use('/posts',(req,res) => {
 //     const posts = [{
 //         "id": 1,
